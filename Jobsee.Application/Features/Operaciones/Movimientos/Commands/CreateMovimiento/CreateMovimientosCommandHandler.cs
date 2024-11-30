@@ -30,52 +30,53 @@ namespace Jobsee.Application.Features.Operaciones.Movimientos.Commands.CreateMov
         {
             var moviemientosEntity = _mapper.Map<Domain.Operaciones.Movimientos>(request);
 
-            if (!ValidacionSaldo(moviemientosEntity))
-            {
-                _logger.LogInformation($"No se realizó el registro debido a la siguinte validacion: {Mensaje}");
-                throw new Exception($"{Mensaje}");
-            }
+            //if (!ValidacionSaldo(moviemientosEntity))
+            //{
+            //    _logger.LogInformation($"No se realizó el registro debido a la siguinte validacion: {Mensaje}");
+            //    throw new Exception($"{Mensaje}");
+            //}
 
-            _unitOfWork.MovimientosRepository.AddEntity(moviemientosEntity);
+            //_unitOfWork.MovimientosRepository.AddEntity(moviemientosEntity);
 
-            var result = await _unitOfWork.Transaction();
+            //var result = await _unitOfWork.Transaction();
 
-            if (result <= 0)
-            {
-                throw new Exception($"No se pudo insertar el movimiento.");
-            }
+            //if (result <= 0)
+            //{
+            //    throw new Exception($"No se pudo insertar el movimiento.");
+            //}
 
-            _logger.LogInformation($"El movimeiento {moviemientosEntity.MovimientoId} fue creado existosamente.");
+            //_logger.LogInformation($"El movimeiento {moviemientosEntity.MovimientoId} fue creado existosamente.");
 
             return moviemientosEntity.MovimientoId;
         }
 
         private bool ValidacionSaldo(Domain.Operaciones.Movimientos movimientos)
         {
-            string mensaje = string.Empty;
-            bool resultado = true;
+            //string mensaje = string.Empty;
+            //bool resultado = true;
 
-            var saldoCuenta = _unitOfWork.MovimientosRepository.GetSaldoCuenta(movimientos);
-            var cupoDisponible = _unitOfWork.MovimientosRepository.GetCupoDisponible(movimientos);
+            //var saldoCuenta = _unitOfWork.MovimientosRepository.GetSaldoCuenta(movimientos);
+            //var cupoDisponible = _unitOfWork.MovimientosRepository.GetCupoDisponible(movimientos);
 
-            if (saldoCuenta == 0 && movimientos.TipoMovimiento == "retiro")
-            {
-                resultado = false;
-                mensaje = $"Saldo no disponible.";
-            }
+            //if (saldoCuenta == 0 && movimientos.TipoMovimiento == "retiro")
+            //{
+            //    resultado = false;
+            //    mensaje = $"Saldo no disponible.";
+            //}
 
-            if (resultado && movimientos.TipoMovimiento == "retiro" && (cupoDisponible + Math.Abs(movimientos.Valor)) > Constantes.ValorTopeDiario)
-            {
-                resultado = false;
-                mensaje = $"Cupo diario Excedido.";
-            }
+            //if (resultado && movimientos.TipoMovimiento == "retiro" && (cupoDisponible + Math.Abs(movimientos.Valor)) > Constantes.ValorTopeDiario)
+            //{
+            //    resultado = false;
+            //    mensaje = $"Cupo diario Excedido.";
+            //}
 
-            if (!string.IsNullOrEmpty(mensaje))
-            {
-                Mensaje = mensaje;
-            }
+            //if (!string.IsNullOrEmpty(mensaje))
+            //{
+            //    Mensaje = mensaje;
+            //}
 
-            return resultado;
+            //return resultado;
+            return true;
         }
     }
 }

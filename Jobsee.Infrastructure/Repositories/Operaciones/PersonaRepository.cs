@@ -4,10 +4,10 @@ using Jobsee.Infrastructure.Persistence;
 
 namespace Jobsee.Infrastructure.Repositories.Operaciones
 {
-    public class PersonaRepository : RepositoryBase<Persona>, IPersonaRepository
-    {
-        public PersonaRepository(DevsuDbContext context) : base(context)
-        {
-        }
-    }
+    //public class PersonaRepository : RepositoryBase<Persona>, IPersonaRepository
+    //{
+    //    public PersonaRepository(DevsuDbContext context) : base(context)
+    //    {
+    //    }
+    //}
 }

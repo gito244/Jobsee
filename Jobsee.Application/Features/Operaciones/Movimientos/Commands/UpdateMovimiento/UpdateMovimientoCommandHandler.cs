@@ -26,21 +26,21 @@ namespace Jobsee.Application.Features.Operaciones.Movimientos.Commands.UpdateMov
 
         public async Task<int> Handle(UpdateMovimientoCommand request, CancellationToken cancellationToken)
         {
-            var movimientoToUpdate = await _unitOfWork.MovimientosRepository.GetByIdAsync(request.MovimientoId);
+            //var movimientoToUpdate = await _unitOfWork.MovimientosRepository.GetByIdAsync(request.MovimientoId);
 
-            if (movimientoToUpdate == null)
-            {
-                _logger.LogError($"No se encontro el movimiento {request.MovimientoId}");
-                throw new NotFoundException(nameof(Cliente), request.MovimientoId);
-            }
+            //if (movimientoToUpdate == null)
+            //{
+            //    _logger.LogError($"No se encontro el movimiento {request.MovimientoId}");
+            //    throw new NotFoundException(nameof(Cliente), request.MovimientoId);
+            //}
 
-            _mapper.Map(request, movimientoToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
+            //_mapper.Map(request, movimientoToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
 
-            _unitOfWork.MovimientosRepository.UpdateEntity(movimientoToUpdate);
+            //_unitOfWork.MovimientosRepository.UpdateEntity(movimientoToUpdate);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"La operacion fue exitosa actualizando el movimiento {request.MovimientoId}");
+            //_logger.LogInformation($"La operacion fue exitosa actualizando el movimiento {request.MovimientoId}");
 
             return request.MovimientoId;
         }

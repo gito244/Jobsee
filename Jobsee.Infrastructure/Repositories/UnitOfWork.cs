@@ -18,10 +18,10 @@ namespace Jobsee.Infrastructure.Repositories
         private ICuentaRepository _cuentaRepository;
         private IMovimientosRepository _movimientosRepository;
 
-        public IPersonaRepository PersonaRepository => _personaRepository ??= new PersonaRepository(_context);
-        public IClienteRepository ClienteRepository => _clienteRepository ??= new ClienteRepository(_context);
-        public ICuentaRepository CuentaRepository => _cuentaRepository ??= new CuentaRepository(_context);
-        public IMovimientosRepository MovimientosRepository => _movimientosRepository ??= new MovimientosRepository(_context);
+        //public IPersonaRepository PersonaRepository => _personaRepository ??= new PersonaRepository(_context);
+        //public IClienteRepository ClienteRepository => _clienteRepository ??= new ClienteRepository(_context);
+        //public ICuentaRepository CuentaRepository => _cuentaRepository ??= new CuentaRepository(_context);
+        //public IMovimientosRepository MovimientosRepository => _movimientosRepository ??= new MovimientosRepository(_context);
 
         public UnitOfWork(DevsuDbContext context)
         {

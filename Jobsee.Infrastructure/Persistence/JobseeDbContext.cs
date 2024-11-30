@@ -8,6 +8,7 @@ namespace Jobsee.Infrastructure.Persistence
         public JobseeDbContext(DbContextOptions<JobseeDbContext> options)
             : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

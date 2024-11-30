@@ -18,8 +18,9 @@ namespace Jobsee.Application.Features.Operaciones.Movimientos.Queries.GetMovimie
 
         public async Task<List<MovimientosWithIncludesVmResponse>> Handle(GetMovimientosListQuery request, CancellationToken cancellationToken)
         {
-            var movimientosList = await _unitOfWork.MovimientosRepository.GetMovimientosFechasxUsuario(request.FechaInicio, request.FechaFin, request.Cliente);
-            return _mapper.Map<List<MovimientosWithIncludesVmResponse>>(movimientosList);
+            //var movimientosList = await _unitOfWork.MovimientosRepository.GetMovimientosFechasxUsuario(request.FechaInicio, request.FechaFin, request.Cliente);
+            //return _mapper.Map<List<MovimientosWithIncludesVmResponse>>(movimientosList);
+            return new List<MovimientosWithIncludesVmResponse>();
         }
     }
 }

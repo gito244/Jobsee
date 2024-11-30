@@ -26,16 +26,16 @@ namespace Jobsee.Application.Features.Operaciones.Personas.Commands.CreatePerson
         {
             var personaEntity = _mapper.Map<Persona>(request);
 
-            _unitOfWork.PersonaRepository.AddEntity(personaEntity);
+            //_unitOfWork.PersonaRepository.AddEntity(personaEntity);
 
-            var result = await _unitOfWork.Transaction();
+            //var result = await _unitOfWork.Transaction();
 
-            if (result <= 0)
-            {
-                throw new Exception($"No se pudo insertar la persona.");
-            }
+            //if (result <= 0)
+            //{
+            //    throw new Exception($"No se pudo insertar la persona.");
+            //}
 
-            _logger.LogInformation($"Persona {personaEntity.PersonaId} fue creado existosamente");
+            //_logger.LogInformation($"Persona {personaEntity.PersonaId} fue creado existosamente");
 
             return personaEntity.PersonaId;
         }

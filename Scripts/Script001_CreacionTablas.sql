@@ -10,6 +10,10 @@ CREATE TABLE Empresa
 	cDescripcion VARCHAR(MAX),
 	cUrlWeb VARCHAR(300),
 	cUrlLinkedin VARCHAR(300),
+	dFechaCreacion DATETIME,
+	cUsuarioCreacion VARCHAR(100),
+	dFechaActualización DATETIME,
+	cUsuarioActualizacion VARCHAR(100),
 	bActivo BIT
 )
 GO
@@ -17,41 +21,53 @@ CREATE TABLE Modalidad
 (
 	nModalidadId INT PRIMARY KEY IDENTITY(1,1),
 	cDescripcion VARCHAR(300),
+	dFechaCreacion DATETIME,
+	cUsuarioCreacion VARCHAR(100),
+	dFechaActualización DATETIME,
+	cUsuarioActualizacion VARCHAR(100),
 	bActivo BIT
 )
 GO
-INSERT INTO Modalidad(cDescripcion,bActivo)
+INSERT INTO Modalidad(cDescripcion,bActivo,dFechaCreacion,cUsuarioCreacion)
 VALUES 
-('Remoto', 1),
-('Híbrido', 1),
-('No definido', 1)
+('Remoto', 1,GETDATE(),'SIST'),
+('Híbrido', 1,GETDATE(),'SIST'),
+('No definido', 1,GETDATE(),'SIST')
 GO
 CREATE TABLE Nivel
 (
 	nNivelId INT PRIMARY KEY IDENTITY(1,1),
 	cDescripcion VARCHAR(300),
+	dFechaCreacion DATETIME,
+	cUsuarioCreacion VARCHAR(100),
+	dFechaActualización DATETIME,
+	cUsuarioActualizacion VARCHAR(100),
 	bActivo BIT
 )
 GO
-INSERT INTO Nivel(cDescripcion,bActivo)
-VALUES ('Trainer', 1),
-('Traenee', 1),
-('Junior', 1),
-('Semi Senior', 1),
-('Senior', 1),
-('Principal', 1)
+INSERT INTO Nivel(cDescripcion,bActivo,dFechaCreacion,cUsuarioCreacion)
+VALUES ('Trainer', 1,GETDATE(),'SIST'),
+('Traenee', 1,GETDATE(),'SIST'),
+('Junior', 1,GETDATE(),'SIST'),
+('Semi Senior', 1,GETDATE(),'SIST'),
+('Senior', 1,GETDATE(),'SIST'),
+('Principal', 1,GETDATE(),'SIST')
 GO
 CREATE TABLE Moneda
 (
 	nMonedaId INT PRIMARY KEY IDENTITY(1,1),
 	cDescripcion VARCHAR(300),
+	dFechaCreacion DATETIME,
+	cUsuarioCreacion VARCHAR(100),
+	dFechaActualización DATETIME,
+	cUsuarioActualizacion VARCHAR(100),
 	bActivo BIT
 )
 GO
-INSERT INTO Moneda(cDescripcion,bActivo)
-VALUES ('Soles', 1),
-('Dólares', 1),
-('Euros', 1)
+INSERT INTO Moneda(cDescripcion,bActivo,dFechaCreacion,cUsuarioCreacion)
+VALUES ('Soles', 1,GETDATE(),'SIST'),
+('Dólares', 1,GETDATE(),'SIST'),
+('Euros', 1,GETDATE(),'SIST')
 GO
 CREATE TABLE PortalEmpleo
 (
@@ -125,6 +141,9 @@ CREATE TABLE Constante
 	bActivo	BIT
 )
 GO
+INSERT INTO Constante(nConstanteValor,cVariable,cDescripcion,cTipoVariable,cValVar,dFechaCreacion,cUsuarioCreacion,bActivo)
+VALUES (1,'dFechaAct','Fecha del Sistema','datetime',CONVERT(VARCHAR(10), GETDATE(), 120),GETDATE(),'SIST',1)
+GO
 CREATE TABLE ProcesoScapping
 (
 	nProcesoScappingId INT PRIMARY KEY IDENTITY(1,1),
@@ -148,6 +167,10 @@ CREATE TABLE LogProcesoScapping
 	nEmpleoId INT,
 	dFecha DATETIME,
 	cDescripcion VARCHAR(MAX),
+	dFechaCreacion DATETIME,
+	cUsuarioCreacion VARCHAR(100),
+	dFechaActualización DATETIME,
+	cUsuarioActualizacion VARCHAR(100),
 	bProcesado BIT,
 
 	CONSTRAINT PK_LogProcesoScapping PRIMARY KEY (cLogProcesoScappingId,nEmpleoId),
@@ -161,6 +184,10 @@ CREATE TABLE ProcesoScappingError
 	nEmpleoId INT,
 	dFecha DATETIME,
 	cDescripcion VARCHAR(MAX),
+	dFechaCreacion DATETIME,
+	cUsuarioCreacion VARCHAR(100),
+	dFechaActualización DATETIME,
+	cUsuarioActualizacion VARCHAR(100),
 	bActivo BIT,
 
 	CONSTRAINT FK_ProcesoScappingError_LogProcesoScapping FOREIGN KEY (cLogProcesoScappingId,nEmpleoId) REFERENCES LogProcesoScapping(cLogProcesoScappingId,nEmpleoId)

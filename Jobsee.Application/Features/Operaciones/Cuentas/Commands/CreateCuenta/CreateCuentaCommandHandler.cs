@@ -24,20 +24,20 @@ namespace Jobsee.Application.Features.Operaciones.Cuentas.Commands.CreateCuenta
 
         public async Task<int> Handle(CreateCuentaCommand request, CancellationToken cancellationToken)
         {
-            var cuentaEntity = _mapper.Map<Cuenta>(request);
+            //var cuentaEntity = _mapper.Map<Cuenta>(request);
 
-            _unitOfWork.CuentaRepository.AddEntity(cuentaEntity);
+            //_unitOfWork.CuentaRepository.AddEntity(cuentaEntity);
 
-            var result = await _unitOfWork.Transaction();
+            //var result = await _unitOfWork.Transaction();
 
-            if (result <= 0)
-            {
-                throw new Exception($"No se pudo insertar la cuenta.");
-            }
+            //if (result <= 0)
+            //{
+            //    throw new Exception($"No se pudo insertar la cuenta.");
+            //}
 
-            _logger.LogInformation($"Numero de cuenta {cuentaEntity.NumeroCuenta} fue creado existosamente.");
+            //_logger.LogInformation($"Numero de cuenta {cuentaEntity.NumeroCuenta} fue creado existosamente.");
 
-            return cuentaEntity.NumeroCuenta;
+            return request.NumeroCuenta;
         }
     }
 }

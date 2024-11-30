@@ -47,23 +47,21 @@ namespace Jobsee.Application.Features.Operaciones.Cuentas.Commands.UpdateCuenta
 
         async Task IRequestHandler<UpdateCuentaCommand>.Handle(UpdateCuentaCommand request, CancellationToken cancellationToken)
         {
-            var cuentaToUpdate = await _unitOfWork.CuentaRepository.GetByIdAsync(request.NumeroCuenta);
+            //var cuentaToUpdate = await _unitOfWork.CuentaRepository.GetByIdAsync(request.NumeroCuenta);
 
-            if (cuentaToUpdate == null)
-            {
-                _logger.LogError($"No se encontro el numero de cuenta {request.NumeroCuenta}");
-                throw new NotFoundException(nameof(Cliente), request.NumeroCuenta);
-            }
+            //if (cuentaToUpdate == null)
+            //{
+            //    _logger.LogError($"No se encontro el numero de cuenta {request.NumeroCuenta}");
+            //    throw new NotFoundException(nameof(Cliente), request.NumeroCuenta);
+            //}
 
-            _mapper.Map(request, cuentaToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
+            //_mapper.Map(request, cuentaToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
 
-            _unitOfWork.CuentaRepository.UpdateEntity(cuentaToUpdate);
+            //_unitOfWork.CuentaRepository.UpdateEntity(cuentaToUpdate);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"La operacion fue exitosa actualizando el numero de cuenta {request.NumeroCuenta}");
-
-            return ;
+            //_logger.LogInformation($"La operacion fue exitosa actualizando el numero de cuenta {request.NumeroCuenta}");
         }
     }
 }

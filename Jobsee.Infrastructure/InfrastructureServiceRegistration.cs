@@ -28,10 +28,10 @@ namespace Jobsee.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
 
-            services.AddScoped<IPersonaRepository, PersonaRepository>();
-            services.AddScoped<IClienteRepository, ClienteRepository>();
-            services.AddScoped<ICuentaRepository, CuentaRepository>();
-            services.AddScoped<IMovimientosRepository, MovimientosRepository>();
+            //services.AddScoped<IPersonaRepository, PersonaRepository>();
+            //services.AddScoped<IClienteRepository, ClienteRepository>();
+            //services.AddScoped<ICuentaRepository, CuentaRepository>();
+            //services.AddScoped<IMovimientosRepository, MovimientosRepository>();
 
             services.Configure<EmailSettings>(c => configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailService, EmailService>();
