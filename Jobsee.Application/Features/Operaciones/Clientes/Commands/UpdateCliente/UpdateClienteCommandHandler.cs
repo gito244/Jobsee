@@ -21,21 +21,21 @@ namespace Jobsee.Application.Features.Operaciones.Clientes.Commands.UpdateClient
 
         public async Task<int> Handle(UpdateClienteCommand request, CancellationToken cancellationToken)
         {
-            var clienteToUpdate = await _unitOfWork.ClienteRepository.GetByIdAsync(request.ClienteId);
+            //var clienteToUpdate = await _unitOfWork.ClienteRepository.GetByIdAsync(request.ClienteId);
 
-            if (clienteToUpdate == null)
-            {
-                _logger.LogError($"No se encontro el cliente id {request.ClienteId}");
-                throw new NotFoundException(nameof(Cliente), request.ClienteId);
-            }
+            //if (clienteToUpdate == null)
+            //{
+            //    _logger.LogError($"No se encontro el cliente id {request.ClienteId}");
+            //    throw new NotFoundException(nameof(Cliente), request.ClienteId);
+            //}
 
-            _mapper.Map(request, clienteToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
+            //_mapper.Map(request, clienteToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
 
-            _unitOfWork.ClienteRepository.UpdateEntity(clienteToUpdate);
+            //_unitOfWork.ClienteRepository.UpdateEntity(clienteToUpdate);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"La operacion fue exitosa actualizando el cliente {request.ClienteId}");
+            //_logger.LogInformation($"La operacion fue exitosa actualizando el cliente {request.ClienteId}");
 
             return request.ClienteId;
         }

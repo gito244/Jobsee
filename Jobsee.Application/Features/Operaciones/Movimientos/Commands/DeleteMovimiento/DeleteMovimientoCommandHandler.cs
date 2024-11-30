@@ -44,19 +44,19 @@ namespace Jobsee.Application.Features.Operaciones.Movimientos.Commands.DeleteMov
 
         async Task IRequestHandler<DeleteMovimientoCommand>.Handle(DeleteMovimientoCommand request, CancellationToken cancellationToken)
         {
-            var movimientoToDelete = await _unitOfWork.MovimientosRepository.GetByIdAsync(request.MovimientoId);
+            //var movimientoToDelete = await _unitOfWork.MovimientosRepository.GetByIdAsync(request.MovimientoId);
 
-            if (movimientoToDelete == null)
-            {
-                _logger.LogError($"{request.MovimientoId} movimiento no existe en el sistema.");
-                throw new NotFoundException(nameof(Domain.Operaciones.Movimientos), request.MovimientoId);
-            }
+            //if (movimientoToDelete == null)
+            //{
+            //    _logger.LogError($"{request.MovimientoId} movimiento no existe en el sistema.");
+            //    throw new NotFoundException(nameof(Domain.Operaciones.Movimientos), request.MovimientoId);
+            //}
 
-            _unitOfWork.MovimientosRepository.DeleteEntity(movimientoToDelete);
+            //_unitOfWork.MovimientosRepository.DeleteEntity(movimientoToDelete);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"El {request.MovimientoId} movimiento fue eliminado con exito.");
+            //_logger.LogInformation($"El {request.MovimientoId} movimiento fue eliminado con exito.");
         }
     }
 }

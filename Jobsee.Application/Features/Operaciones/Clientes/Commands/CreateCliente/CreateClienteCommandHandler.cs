@@ -24,20 +24,20 @@ namespace Jobsee.Application.Features.Operaciones.Clientes.Commands.CreateClient
 
         public async Task<int> Handle(CreateClienteCommand request, CancellationToken cancellationToken)
         {
-            var clienteEntity = _mapper.Map<Cliente>(request);
+            //var clienteEntity = _mapper.Map<Cliente>(request);
 
-            _unitOfWork.ClienteRepository.AddEntity(clienteEntity);
+            //_unitOfWork.ClienteRepository.AddEntity(clienteEntity);
 
-            var result = await _unitOfWork.Transaction();
-            
-            if (result <= 0)
-            {
-                throw new Exception($"No se pudo insertar el cliente.");
-            }
+            //var result = await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"Cliente id {clienteEntity.ClienteId} fue creado existosamente.");
+            //if (result <= 0)
+            //{
+            //    throw new Exception($"No se pudo insertar el cliente.");
+            //}
 
-            return clienteEntity.ClienteId;
+            //_logger.LogInformation($"Cliente id {clienteEntity.ClienteId} fue creado existosamente.");
+
+            return request.Persona!.PersonaId;
         }
     }
 }

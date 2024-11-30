@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Jobsee.Infrastructure\Jobsee.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\General\" />
+  </ItemGroup>
+
 </Project>

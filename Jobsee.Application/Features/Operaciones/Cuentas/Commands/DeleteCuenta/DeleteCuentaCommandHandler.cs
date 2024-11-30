@@ -45,21 +45,19 @@ namespace Jobsee.Application.Features.Operaciones.Cuentas.Commands.DeleteCuenta
 
         async Task IRequestHandler<DeleteCuentaCommand>.Handle(DeleteCuentaCommand request, CancellationToken cancellationToken)
         {
-            var cuentaToDelete = await _unitOfWork.CuentaRepository.GetByIdAsync(request.NumeroCuenta);
+            //var cuentaToDelete = await _unitOfWork.CuentaRepository.GetByIdAsync(request.NumeroCuenta);
 
-            if (cuentaToDelete == null)
-            {
-                _logger.LogError($"{request.NumeroCuenta} numero de cuenta no existe en el sistema.");
-                throw new NotFoundException(nameof(Cuenta), request.NumeroCuenta);
-            }
+            //if (cuentaToDelete == null)
+            //{
+            //    _logger.LogError($"{request.NumeroCuenta} numero de cuenta no existe en el sistema.");
+            //    throw new NotFoundException(nameof(Cuenta), request.NumeroCuenta);
+            //}
 
-            _unitOfWork.CuentaRepository.DeleteEntity(cuentaToDelete);
+            //_unitOfWork.CuentaRepository.DeleteEntity(cuentaToDelete);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"El {request.NumeroCuenta} numero de cuenta fue eliminado con exito.");
-
-            return ;
+            //_logger.LogInformation($"El {request.NumeroCuenta} numero de cuenta fue eliminado con exito.");
         }
     }
 }

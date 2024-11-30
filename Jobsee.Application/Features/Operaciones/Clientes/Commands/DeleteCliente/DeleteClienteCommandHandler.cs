@@ -48,28 +48,26 @@ namespace Jobsee.Application.Features.Operaciones.Clientes.Commands.DeleteClient
 
         async Task IRequestHandler<DeleteClienteCommand>.Handle(DeleteClienteCommand request, CancellationToken cancellationToken)
         {
-            var clienteToDelete = await _unitOfWork.ClienteRepository.GetByIdAsync(request.ClienteId);
+            //var clienteToDelete = await _unitOfWork.ClienteRepository.GetByIdAsync(request.ClienteId);
 
-            if (clienteToDelete == null)
-            {
-                _logger.LogError($"{request.ClienteId} cliente no existe en el sistema.");
-                throw new NotFoundException(nameof(Cliente), request.ClienteId);
-            }
+            //if (clienteToDelete == null)
+            //{
+            //    _logger.LogError($"{request.ClienteId} cliente no existe en el sistema.");
+            //    throw new NotFoundException(nameof(Cliente), request.ClienteId);
+            //}
 
-            _unitOfWork.ClienteRepository.DeleteEntity(clienteToDelete);
+            //_unitOfWork.ClienteRepository.DeleteEntity(clienteToDelete);
 
-            var personaToDelete = await _unitOfWork.PersonaRepository.GetByIdAsync(clienteToDelete.PersonaId);
+            //var personaToDelete = await _unitOfWork.PersonaRepository.GetByIdAsync(clienteToDelete.PersonaId);
 
-            if (personaToDelete == null)
-                _logger.LogError($"{personaToDelete!.PersonaId} persona no enontrada en el sistema.");
-            else
-                _unitOfWork.PersonaRepository.DeleteEntity(personaToDelete);
+            //if (personaToDelete == null)
+            //    _logger.LogError($"{personaToDelete!.PersonaId} persona no enontrada en el sistema.");
+            //else
+            //    _unitOfWork.PersonaRepository.DeleteEntity(personaToDelete);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"El {request.ClienteId} cliente fue eliminado con éxito.");
-
-            return ;
+            //_logger.LogInformation($"El {request.ClienteId} cliente fue eliminado con éxito.");
         }
     }
 }

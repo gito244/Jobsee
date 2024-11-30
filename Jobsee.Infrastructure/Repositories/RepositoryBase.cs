@@ -10,12 +10,12 @@ namespace Jobsee.Infrastructure.Repositories
 {
     public class RepositoryBase<T> : IAsyncRepository<T> where T : BaseDomainModel
     {
-        protected readonly DevsuDbContext _context;
+        protected readonly JobseeDbContext _context;
         //protected readonly JobseeDbContext _context;
 
-        public RepositoryBase(DevsuDbContext contextDevsu)//, JobseeDbContext context)
+        public RepositoryBase(JobseeDbContext context)
         {
-            _context = contextDevsu;
+            _context = context;
             //_context = context;
         }
 

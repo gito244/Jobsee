@@ -26,18 +26,18 @@ namespace Jobsee.Application.Features.Operaciones.Personas.Commands.DeletePerson
 
         public async Task<int> Handle(DeletePersonaCommand request, CancellationToken cancellationToken)
         {
-            var personaToDelete = await _unitOfWork.PersonaRepository.GetByIdAsync(request.PersonaId);
-            if (personaToDelete == null)
-            {
-                _logger.LogError($"{request.PersonaId} persona no existe en el sistema.");
-                throw new NotFoundException(nameof(Persona), request.PersonaId);
-            }
+            //var personaToDelete = await _unitOfWork.PersonaRepository.GetByIdAsync(request.PersonaId);
+            //if (personaToDelete == null)
+            //{
+            //    _logger.LogError($"{request.PersonaId} persona no existe en el sistema.");
+            //    throw new NotFoundException(nameof(Persona), request.PersonaId);
+            //}
 
-            _unitOfWork.PersonaRepository.DeleteEntity(personaToDelete);
+            //_unitOfWork.PersonaRepository.DeleteEntity(personaToDelete);
 
-            await _unitOfWork.Transaction();
+            //await _unitOfWork.Transaction();
 
-            _logger.LogInformation($"El {request.PersonaId} persona fue eliminado con exito.");
+            //_logger.LogInformation($"El {request.PersonaId} persona fue eliminado con exito.");
 
             return request.PersonaId;
         }
