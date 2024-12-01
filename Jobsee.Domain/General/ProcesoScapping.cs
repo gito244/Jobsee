@@ -1,23 +1,25 @@
-﻿namespace Jobsee.Domain.General
+﻿using Jobsee.Domain.Common;
+
+namespace Jobsee.Domain.General
 {
-    public partial class ProcesoScapping
+    public partial class ProcesoScapping : BaseDomainModel
     {
-        public int NProcesoScappingId { get; set; }
+        public int ProcesoScappingId { get; set; }
 
-        public int? NPortalEmpleoId { get; set; }
+        public int? PortalEmpleoId { get; set; }
 
-        public string? CUrlDinamica { get; set; }
+        public string? UrlDinamica { get; set; }
 
-        public DateTime? DFechaCreacion { get; set; }
+        public DateTime? FechaCreacion { get; set; }
 
-        public string? CUsuarioCreacion { get; set; }
+        public string? UsuarioCreacion { get; set; }
 
-        public DateTime? DFechaActualización { get; set; }
+        public DateTime? FechaActualización { get; set; }
 
-        public string? CUsuarioActualizacion { get; set; }
+        public string? UsuarioActualizacion { get; set; }
 
-        public bool? BActivo { get; set; }
+        public bool? Activo { get; set; }
 
-        public virtual PortalEmpleo? NPortalEmpleo { get; set; }
+        public virtual PortalEmpleo? PortalEmpleo { get; set; }
     }
 }

@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\General\Constantes\Commands\CreateConstante\" />
+    <Folder Include="Features\General\Constantes\Commands\DeleteConstante\" />
+    <Folder Include="Features\General\Constantes\Commands\UpdateConstante\" />
     <Folder Include="Features\Operaciones\Personas\Queries\" />
   </ItemGroup>
 

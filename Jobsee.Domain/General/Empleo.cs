@@ -1,65 +1,67 @@
-﻿namespace Jobsee.Domain.General
+﻿using Jobsee.Domain.Common;
+
+namespace Jobsee.Domain.General
 {
-    public partial class Empleo
+    public partial class Empleo : BaseDomainModel
     {
-        public int NEmpleoId { get; set; }
+        public int EmpleoId { get; set; }
 
-        public int? NEmpresaId { get; set; }
+        public int? EmpresaId { get; set; }
 
-        public int? NModalidadId { get; set; }
+        public int? ModalidadId { get; set; }
 
-        public int? NNivelId { get; set; }
+        public int? NivelId { get; set; }
 
-        public int? NMonedaId { get; set; }
+        public int? MonedaId { get; set; }
 
-        public int? NPortalEmpleoId { get; set; }
+        public int? PortalEmpleoId { get; set; }
 
-        public DateTime? DFechaProceso { get; set; }
+        public DateTime? FechaProceso { get; set; }
 
-        public DateTime? DFechaPublicacion { get; set; }
+        public DateTime? FechaPublicacion { get; set; }
 
-        public string? CTitulo { get; set; }
+        public string? Titulo { get; set; }
 
-        public string? CDescripcion { get; set; }
+        public string? Descripcion { get; set; }
 
-        public string? CFunciones { get; set; }
+        public string? Funciones { get; set; }
 
-        public string? CRequerimientos { get; set; }
+        public string? Requerimientos { get; set; }
 
-        public string? COpcionales { get; set; }
+        public string? Opcionales { get; set; }
 
-        public string? CBeneficios { get; set; }
+        public string? Beneficios { get; set; }
 
-        public string? CNacionalidad { get; set; }
+        public string? Nacionalidad { get; set; }
 
-        public string? CRangoSalarial { get; set; }
+        public string? RangoSalarial { get; set; }
 
-        public string? CHerramientas { get; set; }
+        public string? Herramientas { get; set; }
 
-        public string? CTeconologias { get; set; }
+        public string? Teconologias { get; set; }
 
-        public string? CUrl { get; set; }
+        public string? Url { get; set; }
 
-        public DateTime? DFechaCreacion { get; set; }
+        public DateTime? FechaCreacion { get; set; }
 
-        public string? CUsuarioCreacion { get; set; }
+        public string? UsuarioCreacion { get; set; }
 
-        public DateTime? DFechaActualización { get; set; }
+        public DateTime? FechaActualización { get; set; }
 
-        public string? CUsuarioActualizacion { get; set; }
+        public string? UsuarioActualizacion { get; set; }
 
-        public bool? BActivo { get; set; }
+        public bool? Activo { get; set; }
 
         public virtual ICollection<LogProcesoScapping> LogProcesoScappings { get; set; } = new List<LogProcesoScapping>();
 
-        public virtual Empresa? NEmpresa { get; set; }
+        public virtual Empresa? Empresa { get; set; }
 
-        public virtual Modalidad? NModalidad { get; set; }
+        public virtual Modalidad? Modalidad { get; set; }
 
-        public virtual Moneda? NMoneda { get; set; }
+        public virtual Moneda? Moneda { get; set; }
 
-        public virtual Nivel? NNivel { get; set; }
+        public virtual Nivel? Nivel { get; set; }
 
-        public virtual PortalEmpleo? NPortalEmpleo { get; set; }
+        public virtual PortalEmpleo? PortalEmpleo { get; set; }
     }
 }

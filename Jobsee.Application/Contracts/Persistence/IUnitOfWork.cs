@@ -1,4 +1,5 @@
-﻿using Jobsee.Application.Contracts.Persistence.Operaciones;
+﻿using Jobsee.Application.Contracts.Persistence.General;
+//using Jobsee.Application.Contracts.Persistence.Operaciones;
 using Jobsee.Domain.Common;
 
 namespace Jobsee.Application.Contracts.Persistence
@@ -9,6 +10,8 @@ namespace Jobsee.Application.Contracts.Persistence
         //IClienteRepository ClienteRepository { get; }
         //ICuentaRepository CuentaRepository { get; }
         //IMovimientosRepository MovimientosRepository { get; }
+
+        IConstanteRepository ConstanteRepository { get; }
         
         IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
 

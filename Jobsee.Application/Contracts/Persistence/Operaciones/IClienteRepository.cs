@@ -2,8 +2,8 @@
 
 namespace Jobsee.Application.Contracts.Persistence.Operaciones
 {
-    public interface IClienteRepository : IAsyncRepository<Cliente>
-    {
+    //public interface IClienteRepository : IAsyncRepository<Cliente>
+    //{
 
-    }
+    //}
 }

@@ -1,65 +1,65 @@
-﻿using AutoFixture;
-using Jobsee.Domain.Operaciones;
-using Jobsee.Infrastructure.Persistence;
+﻿//using AutoFixture;
+//using Jobsee.Domain.Operaciones;
+//using Jobsee.Infrastructure.Persistence;
 
 namespace Jobsee.Application.UnitTests.Mocks
 {
     public class MockClienteRepository
     {
-        public static void AddDataClienteRepository(DevsuDbContext devsuDbContextFake)
-        {
-            var fixture = new Fixture();
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+    //    public static void AddDataClienteRepository(DevsuDbContext devsuDbContextFake)
+    //    {
+    //        var fixture = new Fixture();
+    //        fixture.Behaviors.Add(new OmitOnRecursionBehavior());
 
-            var clientes = fixture.CreateMany<Cliente>().ToList();
+    //        var clientes = fixture.CreateMany<Cliente>().ToList();
 
-            clientes.Add(fixture.Build<Cliente>()
-               .With(tr => tr.Contrasena, "12345")
-               .With(tr => tr.Estado, true)
-               .Without(tr => tr.Persona)
-               .Create()
-           );
+    //        clientes.Add(fixture.Build<Cliente>()
+    //           .With(tr => tr.Contrasena, "12345")
+    //           .With(tr => tr.Estado, true)
+    //           .Without(tr => tr.Persona)
+    //           .Create()
+    //       );
 
-            devsuDbContextFake.Clientes!.AddRange(clientes);
-            devsuDbContextFake.SaveChanges();
+    //        devsuDbContextFake.Clientes!.AddRange(clientes);
+    //        devsuDbContextFake.SaveChanges();
 
-        }
+    //    }
 
-        public static void UpdateDataClienteRepository(DevsuDbContext devsuDbContextFake)
-        {
-            var fixture = new Fixture();
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+    //    public static void UpdateDataClienteRepository(DevsuDbContext devsuDbContextFake)
+    //    {
+    //        var fixture = new Fixture();
+    //        fixture.Behaviors.Add(new OmitOnRecursionBehavior());
 
-            var clientes = fixture.CreateMany<Cliente>().ToList();
+    //        var clientes = fixture.CreateMany<Cliente>().ToList();
 
-            clientes.Add(fixture.Build<Cliente>()
-               .With(tr => tr.ClienteId, 1)
-               .With(tr => tr.Contrasena, "12345")
-               .With(tr => tr.Estado, true)
-               .Without(tr => tr.Persona)
-               .Create()
-           );
+    //        clientes.Add(fixture.Build<Cliente>()
+    //           .With(tr => tr.ClienteId, 1)
+    //           .With(tr => tr.Contrasena, "12345")
+    //           .With(tr => tr.Estado, true)
+    //           .Without(tr => tr.Persona)
+    //           .Create()
+    //       );
 
-            devsuDbContextFake.Clientes!.AddRange(clientes);
-            devsuDbContextFake.SaveChanges();
+    //        devsuDbContextFake.Clientes!.AddRange(clientes);
+    //        devsuDbContextFake.SaveChanges();
 
-        }
-        public static void DeleteDataClienteRepository(DevsuDbContext devsuDbContextFake)
-        {
-            var fixture = new Fixture();
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+    //    }
+    //    public static void DeleteDataClienteRepository(DevsuDbContext devsuDbContextFake)
+    //    {
+    //        var fixture = new Fixture();
+    //        fixture.Behaviors.Add(new OmitOnRecursionBehavior());
 
-            var clientes = fixture.CreateMany<Cliente>().ToList();
+    //        var clientes = fixture.CreateMany<Cliente>().ToList();
 
-            clientes.Add(fixture.Build<Cliente>()
-               .With(tr => tr.ClienteId, 1)
-               //.Without(tr => tr.Persona)
-               .Create()
-           );
+    //        clientes.Add(fixture.Build<Cliente>()
+    //           .With(tr => tr.ClienteId, 1)
+    //           //.Without(tr => tr.Persona)
+    //           .Create()
+    //       );
 
-            devsuDbContextFake.Clientes!.AddRange(clientes);
-            devsuDbContextFake.SaveChanges();
+    //        devsuDbContextFake.Clientes!.AddRange(clientes);
+    //        devsuDbContextFake.SaveChanges();
 
-        }
+    //    }
     }
 }

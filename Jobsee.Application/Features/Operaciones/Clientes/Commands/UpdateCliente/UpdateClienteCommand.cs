@@ -1,5 +1,4 @@
-﻿using Jobsee.Application.Features.Operaciones.Personas.Commands.CreatePersona;
-using Jobsee.Domain.Operaciones;
+﻿using Jobsee.Domain.Operaciones;
 using MediatR;
 
 namespace Jobsee.Application.Features.Operaciones.Clientes.Commands.UpdateCliente

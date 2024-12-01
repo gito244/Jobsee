@@ -1,4 +1,4 @@
-﻿using Jobsee.Application.Contracts.Persistence.Operaciones;
+﻿//using Jobsee.Application.Contracts.Persistence.Operaciones;
 using Jobsee.Domain.Operaciones;
 using Jobsee.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;

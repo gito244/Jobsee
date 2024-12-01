@@ -1,9 +1,11 @@
 ﻿using Jobsee.Application.Contracts.Persistence;
-using Jobsee.Application.Contracts.Persistence.Operaciones;
+using Jobsee.Application.Contracts.Persistence.General;
+//using Jobsee.Application.Contracts.Persistence.Operaciones;
 using Jobsee.Domain.Common;
 using Jobsee.Infrastructure.Persistence;
-using Jobsee.Infrastructure.Repositories.Operaciones;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Jobsee.Infrastructure.Repositories.General;
+//using Jobsee.Infrastructure.Repositories.Operaciones;
+//using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System.Collections;
 
 namespace Jobsee.Infrastructure.Repositories
@@ -11,24 +13,28 @@ namespace Jobsee.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private Hashtable _repositories;
-        private readonly DevsuDbContext _context;
+        private readonly JobseeDbContext _context;
 
-        private IPersonaRepository _personaRepository;
-        private IClienteRepository _clienteRepository;
-        private ICuentaRepository _cuentaRepository;
-        private IMovimientosRepository _movimientosRepository;
+        //private IPersonaRepository _personaRepository;
+        //private IClienteRepository _clienteRepository;
+        //private ICuentaRepository _cuentaRepository;
+        //private IMovimientosRepository _movimientosRepository;
+
+        private IConstanteRepository _constanteRepository;
 
         //public IPersonaRepository PersonaRepository => _personaRepository ??= new PersonaRepository(_context);
         //public IClienteRepository ClienteRepository => _clienteRepository ??= new ClienteRepository(_context);
         //public ICuentaRepository CuentaRepository => _cuentaRepository ??= new CuentaRepository(_context);
         //public IMovimientosRepository MovimientosRepository => _movimientosRepository ??= new MovimientosRepository(_context);
 
-        public UnitOfWork(DevsuDbContext context)
+        public IConstanteRepository ConstanteRepository => _constanteRepository ??= new ConstanteRepository(_context);
+
+        public UnitOfWork(JobseeDbContext context)
         {
             _context = context;
         }
 
-        public DevsuDbContext DevsuDbContext => _context;
+        public JobseeDbContext JobseeDbContext => _context;
 
         public async Task<int> Transaction()
         {

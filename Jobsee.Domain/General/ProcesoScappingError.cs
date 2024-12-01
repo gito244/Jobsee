@@ -1,26 +1,28 @@
-﻿namespace Jobsee.Domain.General
+﻿using Jobsee.Domain.Common;
+
+namespace Jobsee.Domain.General
 {
-    public partial class ProcesoScappingError
+    public partial class ProcesoScappingError : BaseDomainModel
     {
-        public int NProcesoScappingErrorId { get; set; }
+        public int ProcesoScappingErrorId { get; set; }
 
-        public string? CLogProcesoScappingId { get; set; }
+        public string? LogProcesoScappingId { get; set; }
 
-        public int? NEmpleoId { get; set; }
+        public int? EmpleoId { get; set; }
 
-        public DateTime? DFecha { get; set; }
+        public DateTime? Fecha { get; set; }
 
-        public string? CDescripcion { get; set; }
+        public string? Descripcion { get; set; }
 
-        public DateTime? DFechaCreacion { get; set; }
+        public DateTime? FechaCreacion { get; set; }
 
-        public string? CUsuarioCreacion { get; set; }
+        public string? UsuarioCreacion { get; set; }
 
-        public DateTime? DFechaActualización { get; set; }
+        public DateTime? FechaActualización { get; set; }
 
-        public string? CUsuarioActualizacion { get; set; }
+        public string? UsuarioActualizacion { get; set; }
 
-        public bool? BActivo { get; set; }
+        public bool? Activo { get; set; }
 
         public virtual LogProcesoScapping? LogProcesoScapping { get; set; }
     }

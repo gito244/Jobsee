@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Jobsee.API.Controllers.Seguridad
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -21,14 +21,14 @@ namespace Jobsee.API.Controllers.Seguridad
         #endregion
 
         #region Methods
-        [HttpPost("Login")]
-        public async Task<ActionResult<AuthResponse>> Login([FromBody] AuthRequest request)
+        [HttpPost("login")]
+        public async Task<ActionResult<AuthResponse>> login([FromBody] AuthRequest request)
         {
             return Ok(await _authService.Login(request));
         }
 
-        [HttpPost("Register")]
-        public async Task<ActionResult<RegistrationResponse>> Register([FromBody] RegistrationRequest request)
+        [HttpPost("register")]
+        public async Task<ActionResult<RegistrationResponse>> register([FromBody] RegistrationRequest request)
         {
             return Ok(await _authService.Register(request));
         }

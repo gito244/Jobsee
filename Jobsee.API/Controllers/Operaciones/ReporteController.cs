@@ -1,5 +1,5 @@
-﻿using Jobsee.Application.Features.Operaciones.Movimientos.Queries.GetMovimientosList;
-using Jobsee.Application.Features.Operaciones.Movimientos.Queries.Vms;
+﻿//using Jobsee.Application.Features.Operaciones.Movimientos.Queries.GetMovimientosList;
+//using Jobsee.Application.Features.Operaciones.Movimientos.Queries.Vms;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,16 +23,16 @@ namespace Jobsee.API.Controllers.Operaciones
         #endregion
 
         #region Methods
-        [HttpGet(Name = "GetRangoMovimientoByCliente")]
-        [Authorize(Policy = "RequiredAdministrator&Operator&Accountant")]
-        [ProducesResponseType(typeof(List<MovimientosWithIncludesVmResponse>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<List<MovimientosWithIncludesVmResponse>>> GetRangoMovimientoByCliente(
-                [FromQuery] GetMovimientosListQuery movimientosParams
-            )
-        {
-            var paginationVideo = await _mediator.Send(movimientosParams);
-            return Ok(paginationVideo);
-        }
+        //[HttpGet(Name = "GetRangoMovimientoByCliente")]
+        //[Authorize(Policy = "RequiredAdministrator&Operator&Accountant")]
+        //[ProducesResponseType(typeof(List<MovimientosWithIncludesVmResponse>), (int)HttpStatusCode.OK)]
+        //public async Task<ActionResult<List<MovimientosWithIncludesVmResponse>>> GetRangoMovimientoByCliente(
+        //        [FromQuery] GetMovimientosListQuery movimientosParams
+        //    )
+        //{
+        //    var paginationVideo = await _mediator.Send(movimientosParams);
+        //    return Ok(paginationVideo);
+        //}
         #endregion
     }
 }
